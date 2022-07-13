@@ -4,12 +4,10 @@ package com.example.movietracker.controller;
 import com.example.movietracker.api.ApiRequest;
 import com.example.movietracker.model.Movie;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.apache.catalina.filters.ExpiresFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api")
-public class MovieTrackerController {
+public class ApiController {
 
     @Autowired
     private ApiRequest api;
@@ -28,8 +26,4 @@ public class MovieTrackerController {
         List<Movie> top250 = this.api.getImdbTop250();
         return new ResponseEntity<List<Movie>>(top250, HttpStatus.OK);
     }
-
-
-
-
 }
